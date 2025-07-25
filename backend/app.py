@@ -1,13 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 from utils import lend_money, make_payment, get_ledger, get_account_overview
 
-app = Flask(__name__)
-CORS(app)  # 🔴 This is critical to allow frontend to talk to backend
+app = Flask(__name__, static_folder='../frontend', static_url_path='')
+CORS(app)
 
 @app.route('/')
-def home():
-    return "✅ Bank Loan System API is running!"
+def serve_home():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def static_proxy(path):
+    return send_from_directory(app.static_folder, path)
 
 @app.route('/lend', methods=['POST'])
 def lend():
@@ -29,4 +34,3 @@ def overview(customer_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-  
