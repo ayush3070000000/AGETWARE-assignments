@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Loan System</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- External Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏦 Bank Loan System</h1>
+
+    <h2>Lend Money</h2>
+    <div class="form-group">
+      <input type="text" id="lend_customer" placeholder="Customer ID" class="form-control" />
+      <input type="number" id="lend_amount" placeholder="Loan Amount" class="form-control" />
+      <input type="number" id="lend_years" placeholder="Loan Period (Years)" class="form-control" />
+      <input type="number" id="lend_rate" placeholder="Interest Rate (%)" class="form-control" />
+      <button class="btn btn-primary" onclick="lendMoney()">Lend</button>
+    </div>
+    <pre id="lend_result"></pre>
+
+    <h2>Make Payment</h2>
+    <div class="form-group">
+      <input type="text" id="pay_loan_id" placeholder="Loan ID" class="form-control" />
+      <input type="number" id="pay_amount" placeholder="Amount" class="form-control" />
+      <input type="text" id="pay_type" placeholder="Type (e.g., EMI)" class="form-control" />
+      <button class="btn btn-success" onclick="makePayment()">Pay</button>
+    </div>
+    <pre id="pay_result"></pre>
+
+    <h2>Loan Ledger</h2>
+    <div class="form-group">
+      <input type="text" id="ledger_loan_id" placeholder="Loan ID" class="form-control" />
+      <button class="btn btn-info" onclick="getLedger()">Get Ledger</button>
+    </div>
+    <pre id="ledger_result"></pre>
+
+    <h2>Customer Overview</h2>
+    <div class="form-group">
+      <input type="text" id="overview_customer" placeholder="Customer ID" class="form-control" />
+      <button class="btn btn-dark" onclick="getOverview()">Get Overview</button>
+    </div>
+    <pre id="overview_result"></pre>
+  </div>
+
+  <!-- JS and Bootstrap JS -->
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
